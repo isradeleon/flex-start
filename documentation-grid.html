@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flex Start CSS Grid System Documentation</title>
+  <link rel="stylesheet" href="flex-start.css" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; }
+    h1, h2, h3 { margin: 0.6rem 0 0.3rem; }
+    .page-intro { margin-bottom: 1.6rem; }
+    .section { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1rem; }
+    .class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 8px; }
+    .class-card { background: #f3f7ff; border: 1px solid #c7d6ff; border-radius: 5px; padding: 8px; font-size: 0.92rem; }
+    .demo-row, .grid-row { display: flex; flex-wrap: wrap; gap: 10px; box-sizing: border-box; width: 100%; }
+    .col-box { background: #4b8cff; color: white; border-radius: 4px; padding: 10px; text-align: center; min-height: 40px; box-sizing: border-box; }
+    .hint { font-size: 0.9rem; color: #555; }
+    code { background: #e8eeff; padding: 2px 5px; border-radius: 3px; }
+  </style>
+</head>
+<body>
+  <h1>Flex Start CSS Grid System Documentation</h1>
+  <p class="page-intro">This page explains the responsive 12-column grid system built into <code>flex-start.css</code>. It includes default columns plus breakpoint variants <code>.sm-*</code>, <code>.md-*</code> and <code>.lg-*</code>.</p>
+
+  <div class="section">
+    <h2>Table of Contents</h2>
+    <ul>
+      <li><a href="#grid-base">Grid container and base column</a></li>
+      <li><a href="#responsive">Responsive Breakpoints</a></li>
+      <li><a href="#nested">Nested columns</a></li>
+      <li><a href="#notes">Column rules and notes</a></li>
+    </ul>
+  </div>
+
+  <div class="section" id="grid-base">
+    <h2>Grid container and base column</h2>
+    <p class="hint">Use <code>.grid</code> to create a row container. Use <code>.col</code> for equal-width fill or <code>.col-{n}</code> for fixed fractions.</p>
+    <div class="class-grid">
+      <div class="class-card"><code>.grid</code><br>display: flex; flex-wrap: wrap;</div>
+      <div class="class-card"><code>.col</code><br>flex: 1; default fill</div>
+      <div class="class-card"><code>.col-1</code> ... <code>.col-12</code><br>1/12 to 12/12 width</div>
+    </div>
+
+    <h3>Example: equal columns with .col</h3>
+    <div class="grid-row grid">
+      <div class="col-box col">col</div>
+      <div class="col-box col">col</div>
+      <div class="col-box col">col</div>
+    </div>
+
+    <h3>Example: explicit 12-column fractions</h3>
+    <div class="grid-row grid">
+      <div class="col-box col-3">col-3 (25%)</div>
+      <div class="col-box col-6">col-6 (50%)</div>
+      <div class="col-box col-3">col-3 (25%)</div>
+    </div>
+  </div>
+
+  <div class="section" id="responsive">
+    <h2>Responsive Breakpoints</h2>
+    <p class="hint">The system supports mobile-first classes using <code>.sm-*</code>, <code>.md-*</code>, and <code>.lg-*</code>.</p>
+
+    <div class="class-grid">
+      <div class="class-card"><code>.sm-1</code> ... <code>.sm-12</code><br>Breakpoints <= 767px</div>
+      <div class="class-card"><code>.md-1</code> ... <code>.md-12</code><br>Breakpoints 768px - 991px</div>
+      <div class="class-card"><code>.lg-1</code> ... <code>.lg-12</code><br>Breakpoints >= 1200px</div>
+    </div>
+
+    <h3>Example: responsive behavior</h3>
+    <p class="hint">Resize your browser to see class width change across breakpoints.</p>
+    <div class="grid-row grid" style="margin-top: 8px;">
+      <div class="col-box sm-12 md-6 lg-4">sm-12 md-6 lg-4</div>
+      <div class="col-box sm-12 md-6 lg-4">sm-12 md-6 lg-4</div>
+      <div class="col-box sm-12 md-12 lg-4">sm-12 md-12 lg-4</div>
+    </div>
+
+    <h3>Example: nested columns</h3>
+    <div class="grid-row grid" style="margin-top: 8px;">
+      <div class="col-box col-8">
+        .col-8
+        <div class="grid" style="margin-top: 8px;">
+          <div class="col-box col-6" style="background:#67c23a;">nested .col-6</div>
+          <div class="col-box col-6" style="background:#f56c6c;">nested .col-6</div>
+        </div>
+      </div>
+      <div class="col-box col-4" style="background:#f6ad55;">.col-4</div>
+    </div>
+  </div>
+
+  <div class="section" id="notes">
+    <h2>Column rules and notes</h2>
+    <ul>
+      <li>One row can hold up to 12 columns. When columns exceed 12, they wrap to the next line.</li>
+      <li>Never combine grid and flex helper classes on the same element, except when intentionally nested.</li>
+      <li>Use <code>.col</code> for equal fluid columns, and <code>.col-{n}</code> for exact fractions.</li>
+      <li>Breakpoint classes are mobile-first and override defaults at their screen width range.</li>
+    </ul>
+  </div>
+</body>
+</html>

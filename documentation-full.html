@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flex Start CSS Documentation</title>
+  <title>Flex Start CSS Full Documentation</title>
   <link rel="stylesheet" href="flex-start.css" />
   <style>
     body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; }
@@ -14,29 +14,41 @@
     .class-card { background: #f3f7ff; border: 1px solid #c7d6ff; border-radius: 5px; padding: 8px; font-size: 0.92rem; }
     .demo-box { border: 1px solid #aaa; border-radius: 6px; margin: 8px 0; padding: 12px; min-height: 110px; background: #fff; }
     .demo-box .item { margin: 4px; padding: 8px 12px; background: #4b8cff; color: white; border-radius: 4px; }
+    .grid-row, .demo-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .col-box { background: #4b8cff; color: white; border-radius: 4px; padding: 10px; text-align: center; min-height: 40px; }
+    /* Local fix for documentation to prevent example overflow due to default .grid child padding in library */
+    .grid > .col, .grid > *[class*='col-'], .grid > *[class*='sm-'], .grid > *[class*='md-'], .grid > *[class*='lg-'] {
+      padding: 0 !important;
+      box-sizing: border-box !important;
+    }
     .hint { font-size: 0.9rem; color: #555; }
+    code { background: #e8eeff; padding: 2px 5px; border-radius: 3px; }
     .stack { display: grid; gap: 8px; margin-top: 20px; }
+    ul.toc { padding-left: 1.2rem; }
+    ul.toc li { margin: 4px 0; }
   </style>
 </head>
 <body>
-  <h1>Flex Start CSS Documentation</h1>
-  <p class="page-intro">This page documents all utility classes available in <code>flex-start.css</code>, with live examples and short descriptions. It uses the same design style as <code>demo.html</code> to keep things consistent.</p>
+  <h1>Flex Start CSS Full Documentation</h1>
+  <p class="page-intro">Single-page documentation for both flexbox utilities and responsive 12-column grid system in <code>flex-start.css</code>.</p>
 
   <div class="section">
     <h2>Table of Contents</h2>
-    <ul>
-      <li><a href="#core">Core Flex Container Classes</a></li>
-      <li><a href="#align-items">Align Items (cross axis)</a></li>
-      <li><a href="#justify-content">Justify Content (main axis)</a></li>
-      <li><a href="#align-content">Align Content (multi-line cross axis)</a></li>
-      <li><a href="#align-self">Align Self (item-level)</a></li>
-      <li><a href="#grow">Flex Grow</a></li>
-      <li><a href="#shrink">Flex Shrink</a></li>
-      <li><a href="#notes">Other Notes</a></li>
+    <ul class="toc">
+      <li><a href="#flex-core">Flex: Core</a></li>
+      <li><a href="#flex-align-items">Flex: align-items</a></li>
+      <li><a href="#flex-justify-content">Flex: justify-content</a></li>
+      <li><a href="#flex-align-content">Flex: align-content</a></li>
+      <li><a href="#flex-align-self">Flex: align-self</a></li>
+      <li><a href="#flex-grow">Flex: grow</a></li>
+      <li><a href="#flex-shrink">Flex: shrink</a></li>
+      <li><a href="#grid-base">Grid: base column system</a></li>
+      <li><a href="#grid-responsive">Grid: breakpoints</a></li>
+      <li><a href="#grid-notes">Grid: notes</a></li>
     </ul>
   </div>
 
-  <div class="section" id="core">
+  <div class="section" id="flex-core">
     <h2>Core Flex Container Classes</h2>
     <p class="hint">Use these classes to initialize a flexbox container.</p>
     <div class="class-grid">
@@ -55,9 +67,9 @@
     </div>
   </div>
 
-  <div class="section" id="align-items">
+  <div class="section" id="flex-align-items">
     <h2>Align Items (cross axis)</h2>
-    <p class="hint">Set vertical alignment (for row direction) of all items in a flex line.</p>
+    <p class="hint">Set cross-axis alignment of all items in a flex line.</p>
     <div class="class-grid">
       <div class="class-card"><code>.flex.items-start</code><br>align-items: flex-start</div>
       <div class="class-card"><code>.flex.items-center</code><br>align-items: center</div>
@@ -93,9 +105,9 @@
     </div>
   </div>
 
-  <div class="section" id="justify-content">
+  <div class="section" id="flex-justify-content">
     <h2>Justify Content (main axis)</h2>
-    <p class="hint">Set horizontal distribution of items along the main axis for row direction.</p>
+    <p class="hint">Set main-axis distribution of items.</p>
     <div class="class-grid">
       <div class="class-card"><code>.flex.justify-start</code><br>justify-content: flex-start</div>
       <div class="class-card"><code>.flex.justify-center</code><br>justify-content: center</div>
@@ -134,9 +146,9 @@
     </div>
   </div>
 
-  <div class="section" id="align-content">
+  <div class="section" id="flex-align-content">
     <h2>Align Content (multi-line cross axis)</h2>
-    <p class="hint">Align flex lines in wrapped containers.</p>
+    <p class="hint">Align wrapped lines across the cross-axis.</p>
     <div class="class-grid">
       <div class="class-card"><code>.flex.content-start</code><br>align-content: flex-start</div>
       <div class="class-card"><code>.flex.content-center</code><br>align-content: center</div>
@@ -175,9 +187,9 @@
     </div>
   </div>
 
-  <div class="section" id="align-self">
+  <div class="section" id="flex-align-self">
     <h2>Align Self (item-level)</h2>
-    <p class="hint">Override container <code>align-items</code> for individual items.</p>
+    <p class="hint">Override container <code>align-items</code> for individual children.</p>
     <div class="class-grid">
       <div class="class-card"><code>.self-start</code><br>align-self: flex-start</div>
       <div class="class-card"><code>.self-center</code><br>align-self: center</div>
@@ -194,9 +206,9 @@
     </div>
   </div>
 
-  <div class="section" id="grow">
+  <div class="section" id="flex-grow">
     <h2>Flex Grow</h2>
-    <p class="hint">Control expansion ratio when there is extra space.</p>
+    <p class="hint">Control how child items expand in available space.</p>
     <div class="class-grid">
       <div class="class-card"><code>.grow-0</code><br>flex-grow: 0</div>
       <div class="class-card"><code>.grow-1</code><br>flex-grow: 1</div>
@@ -214,9 +226,9 @@
     </div>
   </div>
 
-  <div class="section" id="shrink">
+  <div class="section" id="flex-shrink">
     <h2>Flex Shrink</h2>
-    <p class="hint">Control shrink ratio when the container is too small.</p>
+    <p class="hint">Control how child items shrink when space is tight.</p>
     <div class="class-grid">
       <div class="class-card"><code>.shrink-0</code><br>flex-shrink: 0</div>
       <div class="class-card"><code>.shrink-1</code><br>flex-shrink: 1</div>
@@ -234,13 +246,56 @@
     </div>
   </div>
 
-  <div class="section" id="notes">
-    <h2>Other Notes</h2>
+  <div class="section" id="grid-base">
+    <h2>Grid container and base column</h2>
+    <p class="hint">Use <code>.grid</code> to create a row container. Use <code>.col</code> for equal-width fill or <code>.col-{n}</code> for fixed fractions.</p>
+    <div class="class-grid">
+      <div class="class-card"><code>.grid</code><br>display: flex; flex-wrap: wrap;</div>
+      <div class="class-card"><code>.col</code><br>flex: 1; default fill</div>
+      <div class="class-card"><code>.col-1</code> ... <code>.col-12</code><br>1/12 to 12/12 width</div>
+    </div>
+
+    <h3>Example: equal columns with .col</h3>
+    <div class="grid-row grid">
+      <div class="col-box col">col</div>
+      <div class="col-box col">col</div>
+      <div class="col-box col">col</div>
+    </div>
+
+    <h3>Example: explicit 12-column fractions</h3>
+    <div class="grid-row grid">
+      <div class="col-box col-3">col-3 (25%)</div>
+      <div class="col-box col-6">col-6 (50%)</div>
+      <div class="col-box col-3">col-3 (25%)</div>
+    </div>
+  </div>
+
+  <div class="section" id="grid-responsive">
+    <h2>Responsive Breakpoints</h2>
+    <p class="hint">The system supports mobile-first classes using <code>.sm-*</code>, <code>.md-*</code>, and <code>.lg-*</code>.</p>
+
+    <div class="class-grid">
+      <div class="class-card"><code>.sm-1</code> ... <code>.sm-12</code><br>Breakpoints <= 767px</div>
+      <div class="class-card"><code>.md-1</code> ... <code>.md-12</code><br>Breakpoints 768px - 991px</div>
+      <div class="class-card"><code>.lg-1</code> ... <code>.lg-12</code><br>Breakpoints >= 1200px</div>
+    </div>
+
+    <h3>Example: responsive behavior</h3>
+    <p class="hint">Resize your browser to see class width change across breakpoints.</p>
+    <div class="grid-row grid" style="margin-top: 8px;">
+      <div class="col-box sm-12 md-6 lg-4">sm-12 md-6 lg-4</div>
+      <div class="col-box sm-12 md-6 lg-4">sm-12 md-6 lg-4</div>
+      <div class="col-box sm-12 md-12 lg-4">sm-12 md-12 lg-4</div>
+    </div>
+  </div>
+
+  <div class="section" id="grid-notes">
+    <h2>Grid rules and notes</h2>
     <ul>
-      <li><strong>Use <code>.flex</code> first</strong> to establish the flex container, then add alignment modifiers.</li>
-      <li><strong><code>.flex.content-*</code></strong> only affects wrapped multi-line containers.</li>
-      <li><strong>Use <code>.self-*</code></strong> on child elements only.</li>
-      <li><strong><code>.grow-*</code> and <code>.shrink-*</code></strong> work per-item, not container-wide.</li>
+      <li>One row can hold up to 12 columns. When columns exceed 12, they wrap to the next line.</li>
+      <li>Use <code>.col</code> for equal fluid columns and <code>.col-{n}</code> for exact fractions.</li>
+      <li>Breakpoint classes are mobile-first and override defaults at their screen width range.</li>
+      <li>Nesting<code>.grid</code> inside <code>.col-*</code> is allowed and useful for complex layouts.</li>
     </ul>
   </div>
 </body>
