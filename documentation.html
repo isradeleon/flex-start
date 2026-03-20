@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flex Start CSS Documentation</title>
+  <link rel="stylesheet" href="flex-start.css" />
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #fafafa; }
+    h1, h2, h3 { margin: 0.6rem 0 0.3rem; }
+    .page-intro { margin-bottom: 1.6rem; }
+    .section { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.2rem; margin-bottom: 1rem; }
+    .class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-top: 8px; }
+    .class-card { background: #f3f7ff; border: 1px solid #c7d6ff; border-radius: 5px; padding: 8px; font-size: 0.92rem; }
+    .demo-box { border: 1px solid #aaa; border-radius: 6px; margin: 8px 0; padding: 12px; min-height: 110px; background: #fff; }
+    .demo-box .item { margin: 4px; padding: 8px 12px; background: #4b8cff; color: white; border-radius: 4px; }
+    .hint { font-size: 0.9rem; color: #555; }
+    .stack { display: grid; gap: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Flex Start CSS Documentation</h1>
+  <p class="page-intro">This page documents all utility classes available in <code>flex-start.css</code>, with live examples and short descriptions. It uses the same design style as <code>demo.html</code> to keep things consistent.</p>
+
+  <div class="section">
+    <h2>Core Flex Container Classes</h2>
+    <p class="hint">Use these classes to initialize a flexbox container.</p>
+    <div class="class-grid">
+      <div class="class-card"><code>.flex</code><br>display: flex</div>
+      <div class="class-card"><code>.flex.inline</code><br>display: inline-flex</div>
+      <div class="class-card"><code>.flex.wrap</code><br>flex-wrap: wrap</div>
+      <div class="class-card"><code>.flex.wrap-reverse</code><br>flex-wrap: wrap-reverse</div>
+      <div class="class-card"><code>.flex.reverse</code><br>flex-direction: row-reverse</div>
+      <div class="class-card"><code>.flex.column</code><br>flex-direction: column</div>
+      <div class="class-card"><code>.flex.column.reverse</code><br>flex-direction: column-reverse</div>
+    </div>
+
+    <p class="hint">Quick example:</p>
+    <div class="demo-box flex wrap justify-between items-center" style="height: 120px;">
+      <span class="item">.flex.wrap</span><span class="item">.justify-between</span><span class="item">.items-center</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Align Items (cross axis)</h2>
+    <p class="hint">Set vertical alignment (for row direction) of all items in a flex line.</p>
+    <div class="class-grid">
+      <div class="class-card"><code>.flex.items-start</code><br>align-items: flex-start</div>
+      <div class="class-card"><code>.flex.items-center</code><br>align-items: center</div>
+      <div class="class-card"><code>.flex.items-end</code><br>align-items: flex-end</div>
+      <div class="class-card"><code>.flex.items-stretch</code><br>align-items: stretch</div>
+    </div>
+
+    <div class="stack">
+      <div>
+        <div class="demo-box flex items-start" style="height: 120px;">
+          <span class="item">top</span><span class="item">top</span><span class="item">top</span>
+        </div>
+        <strong>items-start</strong>
+      </div>
+      <div>
+        <div class="demo-box flex items-center" style="height: 120px;">
+          <span class="item">center</span><span class="item">center</span><span class="item">center</span>
+        </div>
+        <strong>items-center</strong>
+      </div>
+      <div>
+        <div class="demo-box flex items-end" style="height: 120px;">
+          <span class="item">bottom</span><span class="item">bottom</span><span class="item">bottom</span>
+        </div>
+        <strong>items-end</strong>
+      </div>
+      <div>
+        <div class="demo-box flex items-stretch" style="height: 120px;">
+          <span class="item" style="height: auto;">stretched</span><span class="item">stretched</span><span class="item">stretched</span>
+        </div>
+        <strong>items-stretch</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Justify Content (main axis)</h2>
+    <p class="hint">Set horizontal distribution of items along the main axis for row direction.</p>
+    <div class="class-grid">
+      <div class="class-card"><code>.flex.justify-start</code><br>justify-content: flex-start</div>
+      <div class="class-card"><code>.flex.justify-center</code><br>justify-content: center</div>
+      <div class="class-card"><code>.flex.justify-end</code><br>justify-content: flex-end</div>
+      <div class="class-card"><code>.flex.justify-between</code><br>justify-content: space-between</div>
+      <div class="class-card"><code>.flex.justify-around</code><br>justify-content: space-around</div>
+      <div class="class-card"><code>.flex.justify-evenly</code><br>justify-content: space-evenly</div>
+      <div class="class-card"><code>.flex.justify-stretch</code><br>justify-content: stretch</div>
+    </div>
+
+    <div class="stack">
+      <div>
+        <div class="demo-box flex justify-start" style="height: 100px;">
+          <span class="item">1</span><span class="item">2</span><span class="item">3</span>
+        </div>
+        <strong>justify-start</strong>
+      </div>
+      <div>
+        <div class="demo-box flex justify-center" style="height: 100px;">
+          <span class="item">1</span><span class="item">2</span><span class="item">3</span>
+        </div>
+        <strong>justify-center</strong>
+      </div>
+      <div>
+        <div class="demo-box flex justify-between" style="height: 100px;">
+          <span class="item">1</span><span class="item">2</span><span class="item">3</span>
+        </div>
+        <strong>justify-between</strong>
+      </div>
+      <div>
+        <div class="demo-box flex justify-evenly" style="height: 100px;">
+          <span class="item">1</span><span class="item">2</span><span class="item">3</span>
+        </div>
+        <strong>justify-evenly</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Align Content (multi-line cross axis)</h2>
+    <p class="hint">Align flex lines in wrapped containers.</p>
+    <div class="class-grid">
+      <div class="class-card"><code>.flex.content-start</code><br>align-content: flex-start</div>
+      <div class="class-card"><code>.flex.content-center</code><br>align-content: center</div>
+      <div class="class-card"><code>.flex.content-end</code><br>align-content: flex-end</div>
+      <div class="class-card"><code>.flex.content-between</code><br>align-content: space-between</div>
+      <div class="class-card"><code>.flex.content-around</code><br>align-content: space-around</div>
+      <div class="class-card"><code>.flex.content-evenly</code><br>align-content: space-evenly</div>
+      <div class="class-card"><code>.flex.content-stretch</code><br>align-content: stretch</div>
+    </div>
+
+    <div class="stack">
+      <div>
+        <div class="demo-box flex wrap content-start" style="height: 170px;">
+          <span class="item">A</span><span class="item">B</span><span class="item">C</span><span class="item">D</span><span class="item">E</span><span class="item">F</span>
+        </div>
+        <strong>content-start</strong>
+      </div>
+      <div>
+        <div class="demo-box flex wrap content-center" style="height: 170px;">
+          <span class="item">A</span><span class="item">B</span><span class="item">C</span><span class="item">D</span><span class="item">E</span><span class="item">F</span>
+        </div>
+        <strong>content-center</strong>
+      </div>
+      <div>
+        <div class="demo-box flex wrap content-between" style="height: 170px;">
+          <span class="item">A</span><span class="item">B</span><span class="item">C</span><span class="item">D</span><span class="item">E</span><span class="item">F</span>
+        </div>
+        <strong>content-between</strong>
+      </div>
+      <div>
+        <div class="demo-box flex wrap content-stretch" style="height: 170px;">
+          <span class="item">A</span><span class="item">B</span><span class="item">C</span><span class="item">D</span><span class="item">E</span><span class="item">F</span>
+        </div>
+        <strong>content-stretch</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Align Self (item-level)</h2>
+    <p class="hint">Override container <code>align-items</code> for individual items.</p>
+    <div class="class-grid">
+      <div class="class-card"><code>.self-start</code><br>align-self: flex-start</div>
+      <div class="class-card"><code>.self-center</code><br>align-self: center</div>
+      <div class="class-card"><code>.self-end</code><br>align-self: flex-end</div>
+      <div class="class-card"><code>.self-stretch</code><br>align-self: stretch</div>
+    </div>
+
+    <div class="demo-box flex items-center" style="height: 130px;">
+      <span class="item">normal</span>
+      <span class="item self-start">self-start</span>
+      <span class="item self-end">self-end</span>
+      <span class="item self-center">self-center</span>
+      <span class="item self-stretch">self-stretch</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Flex Grow</h2>
+    <p class="hint">Control expansion ratio when there is extra space.</p>
+    <div class="class-grid">
+      <div class="class-card"><code>.grow-0</code><br>flex-grow: 0</div>
+      <div class="class-card"><code>.grow-1</code><br>flex-grow: 1</div>
+      <div class="class-card"><code>.grow-2</code><br>flex-grow: 2</div>
+      <div class="class-card"><code>.grow-3</code><br>flex-grow: 3</div>
+      <div class="class-card"><code>.grow-4</code><br>flex-grow: 4</div>
+      <div class="class-card"><code>.grow-5</code><br>flex-grow: 5</div>
+      <div class="class-card"><code>.grow-6</code><br>flex-grow: 6</div>
+    </div>
+
+    <div class="demo-box flex" style="height: 100px;">
+      <span class="item grow-1">grow-1</span>
+      <span class="item grow-2">grow-2</span>
+      <span class="item grow-3">grow-3</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Flex Shrink</h2>
+    <p class="hint">Control shrink ratio when the container is too small.</p>
+    <div class="class-grid">
+      <div class="class-card"><code>.shrink-0</code><br>flex-shrink: 0</div>
+      <div class="class-card"><code>.shrink-1</code><br>flex-shrink: 1</div>
+      <div class="class-card"><code>.shrink-2</code><br>flex-shrink: 2</div>
+      <div class="class-card"><code>.shrink-3</code><br>flex-shrink: 3</div>
+      <div class="class-card"><code>.shrink-4</code><br>flex-shrink: 4</div>
+      <div class="class-card"><code>.shrink-5</code><br>flex-shrink: 5</div>
+      <div class="class-card"><code>.shrink-6</code><br>flex-shrink: 6</div>
+    </div>
+
+    <div class="demo-box flex" style="width: 310px; flex-wrap: nowrap;">
+      <span class="item shrink-0" style="width: 120px;">shrink-0</span>
+      <span class="item shrink-1" style="width: 120px;">shrink-1</span>
+      <span class="item shrink-3" style="width: 120px;">shrink-3</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Other Notes</h2>
+    <ul>
+      <li><strong>Use <code>.flex</code> first</strong> to establish the flex container, then add alignment modifiers.</li>
+      <li><strong><code>.flex.content-*</code></strong> only affects wrapped multi-line containers.</li>
+      <li><strong>Use <code>.self-*</code></strong> on child elements only.</li>
+      <li><strong><code>.grow-*</code> and <code>.shrink-*</code></strong> work per-item, not container-wide.</li>
+    </ul>
+  </div>
+</body>
+</html>
