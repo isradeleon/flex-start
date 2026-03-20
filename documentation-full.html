@@ -24,8 +24,33 @@
     .hint { font-size: 0.9rem; color: #555; }
     code { background: #e8eeff; padding: 2px 5px; border-radius: 3px; }
     .stack { display: grid; gap: 8px; margin-top: 20px; }
+    /* Smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+
     ul.toc { padding-left: 1.2rem; }
     ul.toc li { margin: 4px 0; }
+    
+    /* TOC link styles */
+    ul.toc a {
+      color: #4b8cff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, padding-left 0.2s ease;
+      display: inline-block;
+    }
+    
+    ul.toc a:hover {
+      color: #1a6ed8;
+      padding-left: 6px;
+    }
+    
+    ul.toc a:focus {
+      outline: 2px solid #4b8cff;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
   </style>
 </head>
 <body>
