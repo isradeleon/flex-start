@@ -1,0 +1,186 @@
+/**
+ * Flex Start - A simple flexbox framework
+ * Author: Israel Diaz de Leon N
+ * License: MIT
+ */
+
+ /*
+    Display flex modifiers.
+    flex: 100% width.
+    inline-flex: behaves as inline element.
+ */
+.flex{
+    display: flex;
+}
+.flex.inline{
+    display: inline-flex;
+}
+
+/*
+    Flex wrap modifiers.
+*/
+.flex.wrap{
+    flex-wrap: wrap;
+}
+.flex.wrap-reverse{
+    flex-wrap: wrap-reverse;
+}
+
+/*
+    Flex direction & column modifiers.
+*/
+.flex.reverse{
+    flex-direction: row-reverse;
+}
+.flex.column{
+    flex-direction: column;
+}
+.flex.column.reverse{
+    flex-direction: column-reverse;
+}
+
+/*
+    Content alignment across the main axis (flex-direction).
+*/
+.flex.items-center{
+    align-items: center;
+}
+.flex.items-start{
+    align-items: flex-start;
+}
+.flex.items-end{
+    align-items: flex-end;
+}
+.flex.items-stretch{
+    align-items: stretch;
+}
+
+/*
+    Content alignment along the main axis (flex-direction).
+*/
+.flex.justify-center{
+    justify-content: center;
+}
+.flex.justify-start{
+    justify-content: flex-start;
+}
+.flex.justify-end{
+    justify-content: flex-end;
+}
+.flex.justify-between{
+    justify-content: space-between;
+}
+.flex.justify-around{
+    justify-content: space-around;
+}
+.flex.justify-evenly{
+    justify-content: space-evenly;
+}
+.flex.justify-stretch{
+    justify-content: stretch;
+}
+
+/*
+    Multi-line cross axis alignment (requires flex-wrap).
+*/
+.flex.content-center{
+    align-content: center;
+}
+.flex.content-start{
+    align-content: flex-start;
+}
+.flex.content-end{
+    align-content: flex-end;
+}
+.flex.content-between{
+    align-content: space-between;
+}
+.flex.content-around{
+    align-content: space-around;
+}
+.flex.content-evenly{
+    align-content: space-evenly;
+}
+.flex.content-stretch{
+    align-content: stretch;
+}
+
+/*
+    Self alignment property.
+*/
+.self-center{
+    align-self: center;
+}
+.self-end{
+    align-self: flex-end;
+}
+.self-start{
+    align-self: flex-start;
+}
+.self-stretch{
+    align-self: stretch;
+}
+
+.grow-6{
+    flex-grow: 6;
+}
+.grow-5{
+    flex-grow: 5;
+}
+.grow-4{
+    flex-grow: 4;
+}
+.grow-3{
+    flex-grow: 3;
+}
+.grow-2{
+    flex-grow: 2;
+}
+.grow-1{
+    flex-grow: 1;
+}
+.grow-0{
+    flex-grow: 0;
+}
+
+.shrink-3{
+    flex-shrink: 3;
+}
+.shrink-2{
+    flex-shrink: 2;
+}
+.shrink-1{
+    flex-shrink: 1;
+}
+.shrink-0{
+    flex-shrink: 0;
+}
+
+/* @media (min-width: 768px) and (max-width: 991px){
+    .flex.tablet-column{
+        flex-direction: column;
+    }
+    .flex.tablet-row{
+        flex-direction: row;
+    }
+    .flex.tablet-column-reverse{
+        flex-direction: column-reverse;
+    }
+    .flex.tablet-row-reverse{
+        flex-direction: row-reverse;
+    }
+}
+@media (max-width: 767px){
+    .flex.mobile-column{
+        flex-direction: column;
+    }
+    .flex.mobile-row{
+        flex-direction: row;
+    }
+    .flex.mobile-column-reverse{
+        flex-direction: column-reverse;
+    }
+    .flex.mobile-row-reverse{
+        flex-direction: row-reverse;
+    }
+} */

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Alignment Demo</title>
+    <link rel="stylesheet" href="flex-start.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .demo-section { margin-bottom: 40px; border: 1px solid #ccc; padding: 20px; }
+        .container { display: flex; border: 2px solid #333; margin: 10px 0; padding: 10px; min-height: 100px; }
+        .item { background: #4CAF50; color: white; padding: 10px; margin: 5px; border-radius: 4px; }
+        .label { font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Flexbox Alignment Properties Demo</h1>
+    <p>This demo showcases the differences between <code>justify-content</code>, <code>align-items</code>, <code>align-content</code>, <code>align-self</code>, and shorthand properties like <code>place-content</code>.</p>
+
+    <div class="demo-section">
+        <h2>justify-content (Main Axis Alignment)</h2>
+        <p>Aligns items along the main axis (the direction of <code>flex-direction</code>). In <code>flex-direction: row</code>, this is horizontal. It controls spacing and positioning of items within each flex line.</p>
+
+        <div class="label">justify-content: flex-start</div>
+        <div class="container" style="justify-content: flex-start;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <div class="label">justify-content: center</div>
+        <div class="container" style="justify-content: center;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <div class="label">justify-content: space-between</div>
+        <div class="container" style="justify-content: space-between;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>align-items (Cross Axis Alignment)</h2>
+        <p>Aligns items along the cross axis (perpendicular to <code>flex-direction</code>). In <code>flex-direction: row</code>, this is vertical. It controls how items are positioned vertically within each line.</p>
+
+        <div class="label">align-items: flex-start</div>
+        <div class="container" style="align-items: flex-start; height: 120px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <div class="label">align-items: center</div>
+        <div class="container" style="align-items: center; height: 120px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+
+        <div class="label">align-items: stretch</div>
+        <div class="container" style="align-items: stretch; height: 120px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>align-content (Multi-line Cross Axis Alignment)</h2>
+        <p>Aligns the flex lines themselves when there are multiple lines (requires <code>flex-wrap: wrap</code> or <code>wrap-reverse</code>). It controls the spacing between the lines, not the items within lines.</p>
+
+        <div class="label">align-content: flex-start (with flex-wrap: wrap)</div>
+        <div class="container" style="flex-wrap: wrap; align-content: flex-start; height: 200px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+
+        <div class="label">align-content: flex-end (with flex-wrap: wrap)</div>
+        <div class="container" style="flex-wrap: wrap; align-content: flex-end; height: 200px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+
+        <div class="label">align-content: center (with flex-wrap: wrap)</div>
+        <div class="container" style="flex-wrap: wrap; align-content: center; height: 200px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+
+        <div class="label">align-content: space-between (with flex-wrap: wrap)</div>
+        <div class="container" style="flex-wrap: wrap; align-content: space-between; height: 200px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+
+        <div class="label">align-content: space-around (with flex-wrap: wrap)</div>
+        <div class="container" style="flex-wrap: wrap; align-content: space-around; height: 200px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+
+        <div class="label">align-content: space-evenly (with flex-wrap: wrap)</div>
+        <div class="container" style="flex-wrap: wrap; align-content: space-evenly; height: 200px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+
+        <div class="label">align-content: stretch (with flex-wrap: wrap) - default</div>
+        <div class="container" style="flex-wrap: wrap; align-content: stretch; height: 200px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>justify-items (Not Applicable in Flexbox)</h2>
+        <p><strong>Note:</strong> <code>justify-items</code> is a CSS Grid property, not Flexbox. In Grid, it aligns grid items along the inline (row) axis within their grid areas. Flexbox uses <code>justify-content</code> instead for similar functionality.</p>
+        <p>For comparison, in Grid: <code>justify-items: center</code> would center items horizontally within their grid cells.</p>
+        <div style="background: #f0f0f0; padding: 10px; border: 1px solid #ccc; margin: 10px 0;">
+            <strong>Flexbox equivalent:</strong> Use <code>justify-content</code> on the container to align items along the main axis.
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>align-self (Individual Item Alignment)</h2>
+        <p>Allows individual flex items to override the container's <code>align-items</code> value. Applied directly to flex items, not the container.</p>
+
+        <div class="label">Container with align-items: flex-start, but middle item has align-self: flex-end</div>
+        <div class="container" style="align-items: flex-start; height: 120px;">
+            <div class="item">1</div>
+            <div class="item" style="align-self: flex-end;">2 (align-self)</div>
+            <div class="item">3</div>
+        </div>
+
+        <div class="label">Container with align-items: center, but first item has align-self: stretch</div>
+        <div class="container" style="align-items: center; height: 120px;">
+            <div class="item" style="align-self: stretch;">1 (stretch)</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Shorthand Properties</h2>
+        <p><code>place-content</code> is a shorthand for <code>justify-content</code> and <code>align-content</code> (in that order). Useful for concise code.</p>
+
+        <div class="label">place-content: center space-between (justify-content: center; align-content: space-between)</div>
+        <div class="container" style="place-content: center space-between; flex-wrap: wrap; height: 200px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+
+        <div class="label">place-content: flex-start center (justify-content: flex-start; align-content: center)</div>
+        <div class="container" style="place-content: flex-start center; flex-wrap: wrap; height: 200px;">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+    </div>
+
+    <div class="demo-section">
+        <h2>Combined Example</h2>
+        <p>All properties working together: justify-content, align-items, align-content, and align-self on one item.</p>
+        <div class="container" style="justify-content: space-around; align-items: center; align-content: space-between; flex-wrap: wrap; height: 200px;">
+            <div class="item">1</div>
+            <div class="item" style="align-self: flex-start;">2 (align-self)</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+        </div>
+    </div>
+</body>
+</html>
